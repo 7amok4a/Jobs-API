@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+
+# dotenv environment variables file
+.env
+
+# VSCode settings folder
+.vscode/
+
+# Optional npm cache directory
+.npm
