@@ -5,6 +5,7 @@ import routerJob from "./routers/jobs.router.js" ;
 import notFoundMiddleware from "./middleware/notFoundHandler.js" ; 
 import errorHandlerMiddleware from "./middleware/errorHandler.js" ; 
 import createConnectionDb from "./database/connect.js";
+import authMiddleware from "./middleware/authentication.js";
 dotenv.config() ; 
 
 const PORT = process.env.PORT ;
@@ -15,7 +16,7 @@ const app = express() ;
 
 app.use(express.json()) ; 
 app.use("/api/v1/auth" , routerAuth) ; 
-app.use("/api/v1/jobs", routerJob);
+app.use("/api/v1/jobs" , authMiddleware, routerJob);
 app.use(notFoundMiddleware) ; 
 app.use(errorHandlerMiddleware) ; 
 
